@@ -24,7 +24,7 @@ public class MathController {
     @GetMapping("factors")
     public ResponseEntity<Object> calculateFactors(@RequestParam(value="value") int value){
         try {
-            return new ResponseEntity<>(Map.of("operation", "factors", "input", String.valueOf(value), "output", mathServices.factors(value)), HttpStatus.OK);
+            return new ResponseEntity<>(mathServices.factors(value), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(Map.of("error", e.getMessage()), HttpStatus.BAD_REQUEST);
         }
@@ -33,7 +33,7 @@ public class MathController {
     @GetMapping("primes")
     public ResponseEntity<Object> calculatePrimes(@RequestParam(value="value") int value){
         try {
-            return new ResponseEntity<>(Map.of("operation", "factors", "input", String.valueOf(value), "output", mathServices.primes(value)), HttpStatus.OK);
+            return new ResponseEntity<>(mathServices.primes(value), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(Map.of("error", e.getMessage()), HttpStatus.BAD_REQUEST);
         }
