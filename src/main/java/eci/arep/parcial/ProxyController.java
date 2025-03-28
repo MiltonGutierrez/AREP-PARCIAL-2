@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProxyController {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private String[] servers = new String[]{"http://localhost:8081/", "http://localhost:8082/"};
+    private String[] servers = new String[]{"http://ec2-3-84-86-41.compute-1.amazonaws.com:8081/", "http://ec2-54-162-30-69.compute-1.amazonaws.com:8081/"};
     private int serverSelector = 0;
 
     @GetMapping("factors")
