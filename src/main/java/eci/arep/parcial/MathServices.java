@@ -21,7 +21,7 @@ public class MathServices {
         }
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 1; i < num; i++) {
-            if(getFactorsList(i).size() == 1){
+            if(getFactorsList(i).size() == 2){
                 list.add(i);
             }
         }
