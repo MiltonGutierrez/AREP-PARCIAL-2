@@ -12,14 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
-public class MathController {
+public class ProxyController{
 
-    private MathServices mathServices;
 
-    @Autowired
-    public MathController(MathServices mathServices){
-        this.mathServices = mathServices;
-    }
     
     @GetMapping("factors")
     public ResponseEntity<Object> calculateFactors(@RequestParam(value="value") int value){
