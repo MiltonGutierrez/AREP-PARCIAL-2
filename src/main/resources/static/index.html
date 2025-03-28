@@ -24,7 +24,7 @@
                 document.getElementById("getrespmsg").innerHTML =
                     this.responseText;
             }
-            xhttp.open("GET", "http://localhost:8080/factors?value=" + value);
+            xhttp.open("GET", "http://ec2-52-202-30-129.compute-1.amazonaws.com:8080/factors?value=" + value);
             xhttp.send();
         }
     </script>
@@ -45,7 +45,7 @@
                 document.getElementById("getrespmsg2").innerHTML =
                     this.responseText;
             }
-            xhttp.open("GET", "http://localhost:8080/primes?value=" + value);
+            xhttp.open("GET", "http://ec2-52-202-30-129.compute-1.amazonaws.com:8080/primes?value=" + value);
             xhttp.send();
         }
     </script>

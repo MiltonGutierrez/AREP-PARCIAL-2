@@ -21,13 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProxyController {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private String[] servers = new String[]{"http://ec2-3-84-86-41.compute-1.amazonaws.com:8081/", "http://ec2-54-162-30-69.compute-1.amazonaws.com:8081/"};
+    private String[] servers = new String[]{"http://ec2-3-84-86-41.compute-1.amazonaws.com:8082/", "http://ec2-54-162-30-69.compute-1.amazonaws.com:8082/"};
     private int serverSelector = 0;
 
     @GetMapping("factors")
     public ResponseEntity<Object> calculateFactors(@RequestParam(value = "value") int value) {
         try {
             String URL = servers[serverSelector % 2] + "factors?value=" + value;
+            System.out.println("SERVER SELECTED: " + servers[serverSelector % 2]);
             serverSelector++;
             return new ResponseEntity<>(Map.of("operation", "factors", "input", String.valueOf(value), "output",
             getResponseFromServers(URL)), HttpStatus.OK);
@@ -40,6 +41,7 @@ public class ProxyController {
     public ResponseEntity<Object> calculatePrimes(@RequestParam(value = "value") int value) {
         try {
             String URL = servers[serverSelector % 2] + "primes?value=" + value;
+            System.out.println("SERVER SELECTED: " + servers[serverSelector % 2]);
             serverSelector++;
             return new ResponseEntity<>(Map.of("operation", "primes", "input", String.valueOf(value), "output",
                     getResponseFromServers(URL)), HttpStatus.OK);
